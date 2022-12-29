@@ -1,4 +1,5 @@
 from pathfinder import pathfind
+from time import sleep
 if __name__ == '__main__':
     t = 2
     f = 1
@@ -12,4 +13,7 @@ if __name__ == '__main__':
     basePath.append({ 'x': 0, 'y': 0 })
 
     exists = pathfind(0, 0, t, f, board, basePath)
-    print(exists)
+    
+    for _ in range(4):
+        print('gamma', flush=True)
+        sleep(1)
