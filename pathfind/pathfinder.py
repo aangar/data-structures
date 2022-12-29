@@ -1,4 +1,4 @@
-def pathfind(x, y, target, board, path):
+def pathfind(x, y, target, flag, board, path):
     '''
     syntax for board usage
     x = subelement, spec sptos
@@ -23,10 +23,10 @@ def pathfind(x, y, target, board, path):
         nextX = x
         nextY = y - 1
         history = isInPath(nextX, nextY, path)
-        if not history and not board[nextY][nextX] == 1:
+        if not history and not board[nextY][nextX] == flag:
             newPath = list(path)
             newPath.append(generateCoordinates(nextX, nextY))
-            upResult = pathfind(nextX, nextY, target, board, newPath)
+            upResult = pathfind(nextX, nextY, target, flag, board, newPath)
     if canGoDown:
         nextX = x
         nextY = y + 1
@@ -34,7 +34,7 @@ def pathfind(x, y, target, board, path):
         if not history and not board[nextY][nextX] == 1:
             newPath = list(path)
             newPath.append(generateCoordinates(nextX, nextY))
-            downResult = pathfind(nextX, nextY, target, board, newPath)
+            downResult = pathfind(nextX, nextY, target, flag, board, newPath)
     if canGoLeft:
         nextX = x - 1
         nextY = y
@@ -42,7 +42,7 @@ def pathfind(x, y, target, board, path):
         if not history and not board[nextY][nextX] == 1:
             newPath = list(path)
             newPath.append(generateCoordinates(nextX, nextY))
-            leftResult = pathfind(nextX, nextY, target, board, newPath)
+            leftResult = pathfind(nextX, nextY, target, flag, board, newPath)
     if canGoRight:
         nextX = x + 1
         nextY = y
@@ -50,7 +50,7 @@ def pathfind(x, y, target, board, path):
         if not history and not board[nextY][nextX] == 1:
             newPath = list(path)
             newPath.append(generateCoordinates(nextX, nextY))
-            rightResult = pathfind(nextX, nextY, target, board, newPath)
+            rightResult = pathfind(nextX, nextY, target, flag, board, newPath)
 
     exists = list()
     for i in [leftResult, rightResult, upResult, downResult]:
