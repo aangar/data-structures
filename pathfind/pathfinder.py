@@ -78,17 +78,3 @@ def isInPath(x , y, path):
             doesContain = True
         step += 1
     return doesContain
-
-if __name__ == '__main__':
-    t = 2
-    board = [
-        [0 , 0 , 0 , 0] ,
-        [0 , 0 , 1 , 0] ,
-        [0 , 1 , 1 , 0] ,
-        [1 , t , 0 , 0]
-    ]
-    basePath = list()
-    basePath.append(generateCoordinates(0, 0))
-
-    exists = pathfind(0, 0, t, board, basePath)
-    print(exists)
