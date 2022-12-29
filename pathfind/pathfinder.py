@@ -66,7 +66,6 @@ def pathfind(x, y, target, flag, board, path):
 
 
 def generateCoordinates(x, y):
-    #tf you think it does???
     return { 'x' : x, 'y' : y }
 
 def isInPath(x , y, path):
