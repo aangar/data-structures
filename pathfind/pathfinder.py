@@ -77,3 +77,14 @@ def isInPath(x , y, path):
             doesContain = True
         step += 1
     return doesContain
+
+def printPath(path, board, step):
+    stepX = path[step].get('x')
+    stepY = path[step].get('y')
+    for y in range(len(board)):
+        for x in range(len(board[y])):
+            if stepX == x and stepY == y:
+                print(f'[ X ] ', end='')
+            else:
+                print(f'[ {board[y][x]} ] ', end='')
+        print('\n')

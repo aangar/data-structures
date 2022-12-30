@@ -1,4 +1,4 @@
-from pathfinder import pathfind
+from pathfinder import pathfind, printPath
 from time import sleep
 from os import system, name
 if __name__ == '__main__':
@@ -15,11 +15,11 @@ if __name__ == '__main__':
 
     exists = pathfind(0, 0, t, f, board, basePath)
     
-    for _ in range(4):
-        print('gamma', flush=True)
-        sleep(1)
+    for step in range(len(exists)):
+        if name == 'nt':
+            system('cls')
+        else:
+            system('clear')
+        printPath(exists, board, step)
+        sleep(.5)
 
-    if name == 'nt':
-        system('cls')
-    else:
-        system('clear')
