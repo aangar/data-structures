@@ -1,5 +1,6 @@
 from pathfinder import pathfind
 from time import sleep
+from os import system, name
 if __name__ == '__main__':
     t = 2
     f = 1
@@ -17,3 +18,8 @@ if __name__ == '__main__':
     for _ in range(4):
         print('gamma', flush=True)
         sleep(1)
+
+    if name == 'nt':
+        system('cls')
+    else:
+        system('clear')
